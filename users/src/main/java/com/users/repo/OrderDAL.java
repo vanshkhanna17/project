@@ -9,6 +9,6 @@ public interface OrderDAL {
 	void save(Orders o);
 	List<Orders> findByUserId(String id);
 	List<Orders> findByCounterId(String id );
-	void stat(Orders o);
+	void stat(String stat, String id);
 	
 }

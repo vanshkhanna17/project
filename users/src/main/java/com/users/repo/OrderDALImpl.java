@@ -34,13 +34,13 @@ public class OrderDALImpl implements OrderDAL {
 	@Override
 	public List<Orders> findByCounterId(String id) {
 		// TODO Auto-generated method stub
-		return mongo.find(new Query(Criteria.where("counter.id").is(id)), Orders.class);
+		return mongo.find(new Query(Criteria.where("counter.counterId").is(id)), Orders.class);
 	}
 
 	@Override
-	public void stat(Orders o) {
+	public void stat(String stat, String id) {
 		// TODO Auto-generated method stub
-		mongo.save(o);
+		mongo.updateFirst(new Query(Criteria.where("id").is(id)), new Update().set("status",stat), Orders.class);
 	}
 	
 }

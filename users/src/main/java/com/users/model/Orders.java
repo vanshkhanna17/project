@@ -19,22 +19,23 @@ public class Orders {
 	@DBRef
 	private Counter counter;
 
-//	@CreatedDate
-//	private Date date;
+	@CreatedDate
+	private Date date;
 	@DBRef
 	private List<Item> items;
 	private String status = "Pending";
-
+	private float total;
 	public Orders() {
 
 	}
 
-	public Orders(User user, Counter counter, List<Item> items) {
+	public Orders(User user, Counter counter, Date date, List<Item> items, float total) {
 		super();
 		this.user = user;
 		this.counter = counter;
-//		this.date = date;
+		this.date = date;
 		this.items = items;
+		this.total = total;
 	}
 
 	public String getId() {
@@ -61,13 +62,13 @@ public class Orders {
 		this.counter = counter;
 	}
 
-//	public Date getDate() {
-//		return date;
-//	}
-//
-//	public void setDate(Date date) {
-//		this.date = date;
-//	}
+	public Date getDate() {
+		return date;
+	}
+
+	public void setDate(Date date) {
+		this.date = date;
+	}
 
 	public List<Item> getItems() {
 		return items;
@@ -83,6 +84,14 @@ public class Orders {
 
 	public void setStatus(String status) {
 		this.status = status;
+	}
+
+	public float getTotal() {
+		return total;
+	}
+
+	public void setTotal(float total) {
+		this.total = total;
 	}
 
 }
