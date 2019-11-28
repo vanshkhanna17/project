@@ -6,7 +6,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document(value = "counters")
 public class Counter {
 	@Id
-	private String counterId;
+	private String id;
 	private String counterName;
 	private String counterOwner;
 	private String counterEmail;
@@ -19,19 +19,19 @@ public class Counter {
 	public Counter(String counterId, String counterName, String counterOwner, String counterEmail,
 			String counterPassword) {
 		super();
-		this.counterId = counterId;
+		this.id = counterId;
 		this.counterName = counterName;
 		this.counterOwner = counterOwner;
 		this.counterEmail = counterEmail;
 		this.counterPassword = counterPassword;
 	}
 
-	public String getCounterId() {
-		return counterId;
+	public String getId() {
+		return id;
 	}
 
-	public String getCounterEmail() {
-		return counterEmail;
+	public void setId(String id) {
+		this.id = id;
 	}
 
 	public void setCounterEmail(String counterEmail) {
@@ -47,7 +47,7 @@ public class Counter {
 	}
 
 	public void setCounterId(String counterId) {
-		this.counterId = counterId;
+		this.id = counterId;
 	}
 
 	public String getCounterName() {
@@ -64,6 +64,12 @@ public class Counter {
 
 	public void setCounterOwner(String counterOwner) {
 		this.counterOwner = counterOwner;
+	}
+
+	@Override
+	public String toString() {
+		return "Counter [counterId=" + id + ", counterName=" + counterName + ", counterOwner=" + counterOwner
+				+ ", counterEmail=" + counterEmail + ", counterPassword=" + counterPassword + "]";
 	}
 
 }

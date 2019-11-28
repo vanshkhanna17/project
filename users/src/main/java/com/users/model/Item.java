@@ -11,28 +11,28 @@ public class Item {
 	private String itemDesc;
 	private String itemPrice;
 	private String itemCuisine;
-	private String isAvailable;
+	private int itemQuantity;
 
 	public Item() {
 	}
 
 	public Item(String itemId, String itemName, String itemDesc, String itemPrice, String itemCuisine,
-			String isAvailable) {
+			int itemQuantity) {
 		super();
 		this.itemId = itemId;
 		this.itemName = itemName;
 		this.itemDesc = itemDesc;
 		this.itemPrice = itemPrice;
 		this.itemCuisine = itemCuisine;
-		this.isAvailable = isAvailable;
+		this.itemQuantity = itemQuantity;
 	}
 
-	public String getIsAvailable() {
-		return isAvailable;
+	public int getItemQuantity() {
+		return itemQuantity;
 	}
 
-	public void setIsAvailable(String isAvailable) {
-		this.isAvailable = isAvailable;
+	public void setItemQuantity(int itemQuantity) {
+		this.itemQuantity = itemQuantity;
 	}
 
 	public String getItemId() {
@@ -73,6 +73,12 @@ public class Item {
 
 	public void setItemCuisine(String itemCuisine) {
 		this.itemCuisine = itemCuisine;
+	}
+
+	@Override
+	public String toString() {
+		return "Item [itemId=" + itemId + ", itemName=" + itemName + ", itemDesc=" + itemDesc + ", itemPrice="
+				+ itemPrice + ", itemCuisine=" + itemCuisine + ", itemQuantity=" + itemQuantity + "]";
 	}
 
 }

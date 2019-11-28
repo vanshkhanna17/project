@@ -25,6 +25,8 @@ public class OrderController {
 	
 	@PostMapping("/orders")
 	public void create(@RequestBody Orders o) {
+		System.err.println("inside order creation");
+		System.err.println(o);
 		order.save(o);
 	}
 	
@@ -35,10 +37,15 @@ public class OrderController {
 	
 	@GetMapping("/ordersbycounter/{cid}")
 	public List<Orders> findForCounter(@PathVariable String cid) {
+		System.out.println("inside get orders by counter");
+		System.out.println(cid);
+		for(Orders o:order.findByCounterId(cid)) {
+			System.out.println(o);
+		}
 		return order.findByCounterId(cid);
 	}
-	@PutMapping("/orders")
-	public void statusChange(@PathParam("stat")String stat, @PathParam("id")String id) {
+	@PutMapping("/orders/{stat}/{id}")
+	public void statusChange(@PathVariable String stat, @PathVariable String id) {
 		order.stat(stat,id);
 	}
 }

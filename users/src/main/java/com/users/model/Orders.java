@@ -94,4 +94,10 @@ public class Orders {
 		this.total = total;
 	}
 
+	@Override
+	public String toString() {
+		return "Orders [id=" + id + ", user=" + user + ", counter=" + counter + ", date=" + date + ", items=" + items
+				+ ", status=" + status + ", total=" + total + "]";
+	}
+
 }
